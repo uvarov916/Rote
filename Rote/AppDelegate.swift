@@ -27,11 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var navigationBarAppearace = UINavigationBar.appearance()
         
-        navigationBarAppearace.tintColor = uicolorFromHex(0xffffff)
-        navigationBarAppearace.barTintColor = uicolorFromHex(0x34495E)
-        
-        // change navigation item title color
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.whiteColor()]
+        navigationBarAppearace.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationBarAppearace.shadowImage = UIImage()
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         

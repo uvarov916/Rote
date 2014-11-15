@@ -85,15 +85,15 @@
 		667C08601A1753CB00BC6BCD /* Rote */ = {
 			isa = PBXGroup;
 			children = (
+				667C086A1A1753CB00BC6BCD /* Main.storyboard */,
+				667C086F1A1753CB00BC6BCD /* LaunchScreen.xib */,
 				667C08631A1753CB00BC6BCD /* AppDelegate.swift */,
 				667C08681A1753CB00BC6BCD /* ViewController.swift */,
-				667C086A1A1753CB00BC6BCD /* Main.storyboard */,
-				667C086D1A1753CB00BC6BCD /* Images.xcassets */,
-				667C086F1A1753CB00BC6BCD /* LaunchScreen.xib */,
-				667C08651A1753CB00BC6BCD /* Rote.xcdatamodeld */,
-				667C08611A1753CB00BC6BCD /* Supporting Files */,
 				669E58DE1A17CE50001E8E18 /* AddCardViewController.swift */,
 				666FE2461A17E23F00F77733 /* CardsViewController.swift */,
+				667C08651A1753CB00BC6BCD /* Rote.xcdatamodeld */,
+				667C086D1A1753CB00BC6BCD /* Images.xcassets */,
+				667C08611A1753CB00BC6BCD /* Supporting Files */,
 			);
 			path = Rote;
 			sourceTree = "<group>";
@@ -172,6 +172,7 @@
 				TargetAttributes = {
 					667C085D1A1753CB00BC6BCD = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = W96SY39A42;
 					};
 					667C08751A1753CB00BC6BCD = {
 						CreatedOnToolsVersion = 6.0;
