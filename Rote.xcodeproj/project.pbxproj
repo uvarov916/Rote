@@ -14,6 +14,7 @@
 		667C086E1A1753CB00BC6BCD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667C086D1A1753CB00BC6BCD /* Images.xcassets */; };
 		667C08711A1753CB00BC6BCD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 667C086F1A1753CB00BC6BCD /* LaunchScreen.xib */; };
 		667C087D1A1753CB00BC6BCD /* RoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C087C1A1753CB00BC6BCD /* RoteTests.swift */; };
+		669E58DF1A17CE50001E8E18 /* AddCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669E58DE1A17CE50001E8E18 /* AddCardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		667C08761A1753CB00BC6BCD /* RoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		667C087B1A1753CB00BC6BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		667C087C1A1753CB00BC6BCD /* RoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoteTests.swift; sourceTree = "<group>"; };
+		667C08861A175BCB00BC6BCD /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		669E58DE1A17CE50001E8E18 /* AddCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 		667C08551A1753CB00BC6BCD = {
 			isa = PBXGroup;
 			children = (
+				667C08861A175BCB00BC6BCD /* Podfile */,
 				667C08601A1753CB00BC6BCD /* Rote */,
 				667C08791A1753CB00BC6BCD /* RoteTests */,
 				667C085F1A1753CB00BC6BCD /* Products */,
@@ -86,6 +90,7 @@
 				667C086F1A1753CB00BC6BCD /* LaunchScreen.xib */,
 				667C08651A1753CB00BC6BCD /* Rote.xcdatamodeld */,
 				667C08611A1753CB00BC6BCD /* Supporting Files */,
+				669E58DE1A17CE50001E8E18 /* AddCardViewController.swift */,
 			);
 			path = Rote;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				667C08691A1753CB00BC6BCD /* ViewController.swift in Sources */,
 				667C08641A1753CB00BC6BCD /* AppDelegate.swift in Sources */,
 				667C08671A1753CB00BC6BCD /* Rote.xcdatamodeld in Sources */,
+				669E58DF1A17CE50001E8E18 /* AddCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +346,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Rote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -350,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Rote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +418,7 @@
 				667C08821A1753CB00BC6BCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		667C08831A1753CB00BC6BCD /* Build configuration list for PBXNativeTarget "RoteTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +427,7 @@
 				667C08851A1753CB00BC6BCD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
