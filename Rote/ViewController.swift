@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let whoSucks = "Ivan"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        println("You suck \(whoSucks)")
         
     }
 
