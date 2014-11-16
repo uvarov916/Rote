@@ -26,6 +26,12 @@ class ViewController: UIViewController {
     
     // MARK: INITIALIZATION
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        titleTextView.alpha = 0
+        answerPlaceholderLabel.alpha = 0
+        answerTextView.alpha = 0
+    }
+    
     func updateFlashcardAfterReview(flashcard: NSManagedObject, responseQuality: Int) {
         
         // getting old values
@@ -97,13 +103,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tgr = UITapGestureRecognizer(target: self, action: "showAnswer")
+        self.view.addGestureRecognizer(tgr)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        tgr = UITapGestureRecognizer(target: self, action: "showAnswer")
-        self.view.addGestureRecognizer(tgr)
         
         self.getFlashcardInfo()
     }
@@ -129,7 +136,7 @@ class ViewController: UIViewController {
             self.updateQuestion()
         } else {
             println("Could not fetch \(error),  \(error!.userInfo)")
-            self.view.removeGestureRecognizer(tgr)
+            tgr.enabled = false
         }
     }
     
@@ -141,36 +148,62 @@ class ViewController: UIViewController {
         
         if flashcards.count > 0 {
             let flashcard: NSManagedObject = flashcards[0] as NSManagedObject
-        
+            
+            titleTextView.alpha = 0
+            answerTextView.alpha = 0
+            answerPlaceholderLabel.alpha = 0
+
             titleTextView.text = flashcard.valueForKey("question") as String
             titleTextView.textAlignment = NSTextAlignment.Left
             answerTextView.text = flashcard.valueForKey("answer") as String
             answerPlaceholderLabel.text = "Tap anywhere to see the answer"
+            
+            
+            UIView.animateWithDuration(0.3, animations: {
+                self.titleTextView.alpha = 1.0
+                self.answerTextView.alpha = 1.0
+                self.answerPlaceholderLabel.alpha = 1.0
+            })
+            
+            
+            
+            
+            tgr.enabled = true;
+        
         } else {
+            titleTextView.alpha = 0
+            answerPlaceholderLabel.alpha = 0
+            
             titleTextView.text = "No more flashcards for now"
             titleTextView.textAlignment = NSTextAlignment.Center
             answerPlaceholderLabel.text = "Come back later for more"
             answerPlaceholderLabel.textAlignment = NSTextAlignment.Center
-            self.view.removeGestureRecognizer(tgr)
+            tgr.enabled = false
+            
+            UIView.animateWithDuration(0.3, animations: {
+                self.titleTextView.alpha = 1.0
+                self.answerPlaceholderLabel.alpha = 1.0
+            })
         }
     }
     
     // MARK: INTERACTION
     
     func showAnswer() {
+        
         answerPlaceholderLabel.hidden = true
         answerTextView.hidden = false
         cardsButton.hidden = true
         buttonFooter.hidden = false
         
-        self.view.removeGestureRecognizer(tgr)
+        tgr.enabled = false
     }
     
     @IBAction func tappedRightButton(sender: AnyObject) {
         updateFlashcardAfterReview(flashcards[0], responseQuality: 5)
         
         flashcards.removeAtIndex(0)
-        self.view.addGestureRecognizer(tgr)
+        tgr.enabled = true
         self.updateQuestion()
     }
 
@@ -178,7 +211,7 @@ class ViewController: UIViewController {
         updateFlashcardAfterReview(flashcards[0], responseQuality: 3)
         
         flashcards.removeAtIndex(0)
-        self.view.addGestureRecognizer(tgr)
+        tgr.enabled = true
         self.updateQuestion()
     }
     
@@ -186,7 +219,7 @@ class ViewController: UIViewController {
         updateFlashcardAfterReview(flashcards[0], responseQuality: 0)
         
         flashcards.removeAtIndex(0)
-        self.view.addGestureRecognizer(tgr)
+        tgr.enabled = true
         self.updateQuestion()
     }
 }

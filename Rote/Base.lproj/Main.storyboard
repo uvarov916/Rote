@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfh-k3-I32">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="Show 3 ways of printing string s 5 times using only one statement (no loops)." translatesAutoresizingMaskIntoConstraints="NO" id="8fh-yg-38A">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" scrollEnabled="NO" text="Show 3 ways of printing string s 5 times using only one statement (no loops)." translatesAutoresizingMaskIntoConstraints="NO" id="8fh-yg-38A">
                                         <rect key="frame" x="28" y="31" width="320" height="62.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,13 +96,13 @@
                                     <segue destination="8Tb-Jh-f3E" kind="push" id="lo0-un-FLv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to see the answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy5-xB-gg6">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to see the answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy5-xB-gg6">
                                 <rect key="frame" x="27" y="292" width="320" height="20"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jz5-rQ-JcC">
+                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jz5-rQ-JcC">
                                 <rect key="frame" x="27" y="154" width="320" height="350.5"/>
                                 <string key="text">1. puts s * 5
 2. 5.times { puts s }
@@ -242,7 +242,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emC-hM-Qep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1767.5" y="310.5"/>
+            <point key="canvasLocation" x="1820.5" y="372.5"/>
         </scene>
         <!--Edit-->
         <scene sceneID="p2q-1B-kiA">
@@ -291,6 +291,9 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                                     <outlet property="delegate" destination="EUi-v7-OCf" id="och-Zc-zef"/>
                                 </connections>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="save-confirmation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqw-BB-3CR">
+                                <rect key="frame" x="125" y="239" width="125" height="125"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -314,6 +317,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                         <outlet property="actionBarButtonItem" destination="FjJ-yh-jJn" id="KQG-Pb-fmN"/>
                         <outlet property="answerTextView" destination="jCA-od-twt" id="PRV-m0-kC0"/>
                         <outlet property="questionTextView" destination="JZx-rj-gP3" id="UzB-Cr-ppZ"/>
+                        <outlet property="saveConfirmation" destination="Oqw-BB-3CR" id="4IB-vf-mF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf9-Jp-gKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,6 +367,9 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                                     <outlet property="delegate" destination="LaC-is-jsC" id="hkm-AB-z16"/>
                                 </connections>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="confirmation" translatesAutoresizingMaskIntoConstraints="NO" id="EBX-dS-noA">
+                                <rect key="frame" x="125" y="239" width="125" height="125"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -386,6 +393,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                     <connections>
                         <outlet property="actionBarButton" destination="n9g-QO-ahf" id="T5n-GD-BAv"/>
                         <outlet property="answerTextView" destination="W4n-EQ-OHP" id="zqE-Ce-PPP"/>
+                        <outlet property="confirmationMessage" destination="EBX-dS-noA" id="it1-D5-Z9k"/>
                         <outlet property="questionTextView" destination="6sl-Wi-Sbv" id="Fvv-xb-fw6"/>
                     </connections>
                 </viewController>
@@ -420,6 +428,10 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
             <point key="canvasLocation" x="740" y="352"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="confirmation" width="125" height="125"/>
+        <image name="save-confirmation" width="125" height="125"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -26,6 +26,7 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         tableView.estimatedRowHeight = 67
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
 
         self.navigationItem.hidesBackButton = true;
     }
@@ -33,7 +34,7 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        tableView.reloadData()  
+        tableView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -16,14 +16,16 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var questionTextView: UITextView!
     @IBOutlet var answerTextView: UITextView!
     @IBOutlet var actionBarButton: UIBarButtonItem!
+    @IBOutlet var confirmationMessage: UIImageView!
+    
+    override func viewWillAppear(animated: Bool) {
+        confirmationMessage.alpha = 0.0
+    }
     
     // MARK: INITIALIZATION:
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Un-comment to make question textfield automatically be selected
-        //questionTextView.becomeFirstResponder()
     }
 
     // MARK: TEXTVIEW DELEGATE
@@ -80,9 +82,17 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
         // var nextDate: NSDate = NSDate().dateByAddingTimeInterval(60)
         newFlashcard.setValue(currentDate, forKey: "next_date")
         
+        UIView.animateWithDuration(1, animations: {
+            self.confirmationMessage.alpha = 1.0
+        })
         
+        UIView.animateWithDuration(1, animations: {
+            self.confirmationMessage.alpha = 0
+        })
         
         context.save(nil)
+        
+        
         
         println("-------------- ADDED NEW DATA --------------")
         println(newFlashcard)
@@ -90,5 +100,8 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
         
         questionTextView.text = ""
         answerTextView.text = ""
+        
+        questionTextView.becomeFirstResponder()
+        
     }
 }

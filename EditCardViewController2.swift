@@ -19,8 +19,13 @@ class EditCardViewController2: UIViewController, UITextViewDelegate {
     @IBOutlet var questionTextView: UITextView!
     @IBOutlet var answerTextView: UITextView!
     @IBOutlet var actionBarButtonItem: UIBarButtonItem!
+    @IBOutlet var saveConfirmation: UIImageView!
     
     // MARK: INITIALIZATION
+    
+    override func viewWillAppear(animated: Bool) {
+        saveConfirmation.alpha = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +60,12 @@ class EditCardViewController2: UIViewController, UITextViewDelegate {
         managedContext.save(&error)
         if error == nil {
             println("Object saved successfully")
-            navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewControllerAnimated(true)
+            
         } else {
             println("Error saving object \(error)")
         }
+        
+        
     }
 }
