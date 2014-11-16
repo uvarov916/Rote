@@ -14,6 +14,7 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK: VARIABLES
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var questionLabel: UILabel!
     
     var flashcards = [NSManagedObject]()
     var managedContext: NSManagedObjectContext!
@@ -23,7 +24,6 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ReusableCell")
         tableView.estimatedRowHeight = 67
         tableView.rowHeight = UITableViewAutomaticDimension
 
@@ -67,10 +67,10 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ReusableCell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reusableCell") as CustomTableViewCell
         
         let flashcard = flashcards[indexPath.row]
-        cell.textLabel.text = flashcard.valueForKey("question") as String!
+        cell.questionLabel.text = flashcard.valueForKey("question") as String!
         
         cell.layoutMargins = UIEdgeInsetsZero
         cell.preservesSuperviewLayoutMargins = false

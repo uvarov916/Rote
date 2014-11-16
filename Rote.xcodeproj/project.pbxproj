@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28DC524D1A182B2B0062F619 /* EditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC524C1A182B2B0062F619 /* EditCardViewController.swift */; };
+		28DC524F1A1851830062F619 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC524E1A1851830062F619 /* CustomTableViewCell.swift */; };
 		666FE2471A17E23F00F77733 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666FE2461A17E23F00F77733 /* CardsViewController.swift */; };
 		667C08641A1753CB00BC6BCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C08631A1753CB00BC6BCD /* AppDelegate.swift */; };
 		667C08671A1753CB00BC6BCD /* Rote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 667C08651A1753CB00BC6BCD /* Rote.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		28DC524C1A182B2B0062F619 /* EditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCardViewController.swift; sourceTree = "<group>"; };
+		28DC524E1A1851830062F619 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		666FE2461A17E23F00F77733 /* CardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		667C085E1A1753CB00BC6BCD /* Rote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		667C08621A1753CB00BC6BCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				666FE2461A17E23F00F77733 /* CardsViewController.swift */,
 				28DC524C1A182B2B0062F619 /* EditCardViewController.swift */,
 				669E58DE1A17CE50001E8E18 /* AddCardViewController.swift */,
+				28DC524E1A1851830062F619 /* CustomTableViewCell.swift */,
 				667C08651A1753CB00BC6BCD /* Rote.xcdatamodeld */,
 				667C086D1A1753CB00BC6BCD /* Images.xcassets */,
 				667C08611A1753CB00BC6BCD /* Supporting Files */,
@@ -230,6 +233,7 @@
 				28DC524D1A182B2B0062F619 /* EditCardViewController.swift in Sources */,
 				667C08691A1753CB00BC6BCD /* ViewController.swift in Sources */,
 				667C08641A1753CB00BC6BCD /* AppDelegate.swift in Sources */,
+				28DC524F1A1851830062F619 /* CustomTableViewCell.swift in Sources */,
 				666FE2471A17E23F00F77733 /* CardsViewController.swift in Sources */,
 				667C08671A1753CB00BC6BCD /* Rote.xcdatamodeld in Sources */,
 				669E58DF1A17CE50001E8E18 /* AddCardViewController.swift in Sources */,
