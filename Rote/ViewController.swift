@@ -65,8 +65,9 @@ class ViewController: UIViewController {
             titleTextView.text = flashcard.valueForKey("question") as String
             answerTextView.text = flashcard.valueForKey("answer") as String
         } else {
-            titleTextView.text = "No more flashcards"
-            answerPlaceholderLabel.hidden = true
+            titleTextView.text = "No more flashcards for now"
+            answerPlaceholderLabel.text = "Come back later for more"
+            answerPlaceholderLabel.textAlignment = NSTextAlignment.Center
             self.view.removeGestureRecognizer(tgr)
         }
     }
