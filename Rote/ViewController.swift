@@ -7,32 +7,96 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
+    // MARK: VARIABLES
+    
     @IBOutlet var underNavigationBar: UIView!
     @IBOutlet var titleTextView: UITextView!
+    @IBOutlet var answerTextView: UITextView!
+    @IBOutlet var cardsButton: UIButton!
+    @IBOutlet var buttonFooter: UIView!
+    @IBOutlet var answerPlaceholderLabel: UILabel!
     
-    let whoSucks = "Ivan"
+    var tgr: UITapGestureRecognizer!
+    var flashcards = [NSManagedObject]()
+    var managedContext: NSManagedObjectContext!
+    
+    // MARK: INITIALIZATION
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleTextView.text = "You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan v You suck ivanv You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan v You suck ivanv You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan You suck ivan"
+        tgr = UITapGestureRecognizer(target: self, action: "showAnswer")
+        self.view.addGestureRecognizer(tgr)
         
-        /*let contentSizeHeight = titleTextView.contentSize.height
-        var navBarFrame = underNavigationBar.frame
-        navBarFrame.size.height = contentSizeHeight + 600
-        underNavigationBar.frame = navBarFrame*/
-        titleTextView.sizeToFit()
-        println("\(underNavigationBar.frame.size.height), \(titleTextView.frame.size.height)")
-        underNavigationBar.frame.size.height = titleTextView.frame.size.height + 120
+        self.getFlashcardInfo()
+    }
+    
+    func getFlashcardInfo() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if managedContext == nil {
+            managedContext = appDelegate.managedObjectContext!
+        }
+        let fetchRequest = NSFetchRequest(entityName: "Flashcards")
+        var error: NSError?
         
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
         
-        //self.navigationController?.navigationBar.hidden = true
+        if let results = fetchedResults {
+            flashcards = results
+            self.updateQuestion()
+        } else {
+            println("Could not fetch \(error),  \(error!.userInfo)")
+        }
+    }
+    
+    func updateQuestion() {
+        answerPlaceholderLabel.hidden = false
+        answerTextView.hidden = true
+        cardsButton.hidden = false
+        buttonFooter.hidden = true
         
-        println("You suck \(whoSucks)")
-
+        if flashcards.count > 0 {
+            let flashcard: NSManagedObject = flashcards[0] as NSManagedObject
+        
+            titleTextView.text = flashcard.valueForKey("question") as String
+            answerTextView.text = flashcard.valueForKey("answer") as String
+        } else {
+            titleTextView.text = "No more flashcards"
+            answerPlaceholderLabel.hidden = true
+            self.view.removeGestureRecognizer(tgr)
+        }
+    }
+    
+    // MARK: INTERACTION
+    
+    func showAnswer() {
+        answerPlaceholderLabel.hidden = true
+        answerTextView.hidden = false
+        cardsButton.hidden = true
+        buttonFooter.hidden = false
+        
+        self.view.removeGestureRecognizer(tgr)
+    }
+    
+    @IBAction func tappedRightButton(sender: AnyObject) {
+        flashcards.removeAtIndex(0)
+        self.view.addGestureRecognizer(tgr)
+        self.updateQuestion()
     }
 
+    @IBAction func tappedNotSureButton(sender: AnyObject) {
+        flashcards.removeAtIndex(0)
+        self.view.addGestureRecognizer(tgr)
+        self.updateQuestion()
+    }
+    
+    @IBAction func tappedWrongButton(sender: AnyObject) {
+        flashcards.removeAtIndex(0)
+        self.view.addGestureRecognizer(tgr)
+        self.updateQuestion()
+    }
 }

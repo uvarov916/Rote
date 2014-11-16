@@ -7,33 +7,98 @@
 //
 
 import UIKit
+import CoreData
 
-class CardsViewController: UIViewController {
+class CardsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: VARIABLES
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var flashcards = [NSManagedObject]()
+    var managedContext: NSManagedObjectContext!
+    
+    // MARK: INITIALIZATION
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "ReusableCell")
+        tableView.estimatedRowHeight = 67
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        self.navigationItem.hidesBackButton = true;
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()  
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getFlashcardInfo()
+    }
+    
+    func getFlashcardInfo() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if managedContext == nil {
+            managedContext = appDelegate.managedObjectContext!
+        }
+        let fetchRequest = NSFetchRequest(entityName: "Flashcards")
+        var error: NSError?
+        
+        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+        
+        if let results = fetchedResults {
+            flashcards = results
+        } else {
+            println("Could not fetch \(error),  \(error!.userInfo)")
+        }
+        
+    }
+    
+    // MARK: TABLEVIEW
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return flashcards.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ReusableCell") as UITableViewCell
+        
+        let flashcard = flashcards[indexPath.row]
+        cell.textLabel.text = flashcard.valueForKey("question") as String!
+        
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.preservesSuperviewLayoutMargins = false
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let flashcard = flashcards[indexPath.row]
+        let question = flashcard.valueForKey("question") as String!
+        
+        self.performSegueWithIdentifier("editCardSegue", sender: self)
+        
+        tableView.cellForRowAtIndexPath(indexPath)?.selected = false
+    }
+    
+    // MARK: NAVIGATION
     
     @IBAction func backToStudy() {
         navigationController?.popViewControllerAnimated(true)
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.navigationItem.hidesBackButton = true;
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "editCardSegue" {
+            let vc:EditCardViewController = segue.destinationViewController as EditCardViewController
+            let indexPath = tableView.indexPathForSelectedRow()
+            vc.flashCard = flashcards[indexPath!.row]
+            vc.managedContext = managedContext
+        }
     }
-    */
-
 }
