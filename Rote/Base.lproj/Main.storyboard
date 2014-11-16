@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nfh-k3-I32">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="122.5"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="Show 3 ways of printing string s 5 times using only one statement (no loops)." translatesAutoresizingMaskIntoConstraints="NO" id="8fh-yg-38A">
-                                        <rect key="frame" x="28" y="31" width="320" height="63"/>
+                                        <rect key="frame" x="28" y="31" width="320" height="62.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -96,14 +96,14 @@
                                     <segue destination="8Tb-Jh-f3E" kind="push" id="lo0-un-FLv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to see the answer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy5-xB-gg6">
-                                <rect key="frame" x="85" y="292" width="204" height="20"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap anywhere to see the answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cy5-xB-gg6">
+                                <rect key="frame" x="27" y="292" width="320" height="20"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jz5-rQ-JcC">
-                                <rect key="frame" x="27" y="155" width="320" height="350"/>
+                                <rect key="frame" x="27" y="154" width="320" height="350.5"/>
                                 <string key="text">1. puts s * 5
 2. 5.times { puts s }
 3. puts s + s + s + s + s
@@ -184,16 +184,17 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6q-ZQ-xAq">
-                                                    <rect key="frame" x="37" y="22" width="300" height="23"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <rect key="frame" x="37" y="17" width="300" height="32.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                                    <color key="textColor" red="0.24705882352941178" green="0.24705882352941178" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="i6q-ZQ-xAq" secondAttribute="bottom" constant="13" id="Db0-MR-dho"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="i6q-ZQ-xAq" secondAttribute="bottom" constant="9" id="Db0-MR-dho"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="i6q-ZQ-xAq" secondAttribute="trailing" constant="30" id="FxC-EW-TPh"/>
                                                 <constraint firstItem="i6q-ZQ-xAq" firstAttribute="leading" secondItem="PEg-Xa-ADv" secondAttribute="leadingMargin" constant="29" id="ICj-Ex-kar"/>
-                                                <constraint firstItem="i6q-ZQ-xAq" firstAttribute="top" secondItem="PEg-Xa-ADv" secondAttribute="topMargin" constant="14" id="vay-S2-dry"/>
+                                                <constraint firstItem="i6q-ZQ-xAq" firstAttribute="top" secondItem="PEg-Xa-ADv" secondAttribute="topMargin" constant="9" id="vay-S2-dry"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -241,7 +242,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="emC-hM-Qep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1757.5" y="339.5"/>
+            <point key="canvasLocation" x="1767.5" y="310.5"/>
         </scene>
         <!--Edit-->
         <scene sceneID="p2q-1B-kiA">

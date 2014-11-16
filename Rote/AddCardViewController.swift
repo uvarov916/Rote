@@ -25,7 +25,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
         // Un-comment to make question textfield automatically be selected
         //questionTextView.becomeFirstResponder()
     }
-    
+
     // MARK: TEXTVIEW DELEGATE
     
     func textViewDidChange(textView: UITextView) {
@@ -71,9 +71,20 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
         
         newFlashcard.setValue(questionTextView.text, forKey: "question")
         newFlashcard.setValue(answerTextView.text, forKey: "answer")
+        newFlashcard.setValue(0, forKey: "current_interval")
+        newFlashcard.setValue(2.5, forKey: "efactor")
+        newFlashcard.setValue(0, forKey: "times_reviewed")
+        
+        let currentDate: NSDate = NSDate()
+        // adding interval time to get the next date
+        // var nextDate: NSDate = NSDate().dateByAddingTimeInterval(60)
+        newFlashcard.setValue(currentDate, forKey: "next_date")
+        
+        
         
         context.save(nil)
         
+        println("-------------- ADDED NEW DATA --------------")
         println(newFlashcard)
         println("Object Saved.")
         
