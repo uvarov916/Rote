@@ -21,13 +21,15 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        questionTextView.becomeFirstResponder()
+        
+        // Un-comment to make question textfield automatically be selected
+        //questionTextView.becomeFirstResponder()
     }
     
     // MARK: TEXTVIEW DELEGATE
     
     func textViewDidChange(textView: UITextView) {
+        // Check length of both textfields, and only enable button if they contain text
         if countElements(questionTextView.text) > 0 && countElements(answerTextView.text) > 0 {
             actionBarButton.enabled = true
         } else {
@@ -36,6 +38,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
+        // Check for placeholder text, if it's there, remove it
         if textView.text == "Enter the question here" || textView.text == "Enter the correct answer here" {
             textView.text = ""
             if textView == questionTextView {
@@ -47,6 +50,7 @@ class AddCardViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
+        // Check for empty, if it is, enter placeholder text
         if textView.text == "" {
             textView.textColor = UIColor.lightGrayColor()
             if textView == questionTextView {

@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class EditCardViewController2: UIViewController {
+class EditCardViewController2: UIViewController, UITextViewDelegate {
+    
+    // MARK: VARIABLES
     
     var flashCard: NSManagedObject!
     var managedContext: NSManagedObjectContext!
@@ -18,6 +20,8 @@ class EditCardViewController2: UIViewController {
     @IBOutlet var answerTextView: UITextView!
     @IBOutlet var actionBarButtonItem: UIBarButtonItem!
     
+    // MARK: INITIALIZATION
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,12 +29,23 @@ class EditCardViewController2: UIViewController {
         answerTextView.text = flashCard.valueForKey("answer") as String
     }
     
+    // MARK: TEXTVIEW DELEGATE
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        actionBarButtonItem.title = "Save"
+        actionBarButtonItem.action = "saveCard:"
+    }
+    
+    // MARK: ACTIONS
+    
     @IBAction func editCard(sender: AnyObject) {
         questionTextView.becomeFirstResponder()
         
         actionBarButtonItem.title = "Save"
         actionBarButtonItem.action = "saveCard:"
     }
+    
+    // MARK: CORE DATA STORAGE
     
     func saveCard(sender: AnyObject) {
         flashCard.setValue(questionTextView.text, forKey: "question")
