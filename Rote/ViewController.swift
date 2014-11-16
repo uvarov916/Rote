@@ -81,6 +81,7 @@ class ViewController: UIViewController {
         }
         
         newDate = NSDate().dateByAddingTimeInterval(NSTimeInterval(newInterval))
+        println("DATE DATE DATE DATE DATE DATE: \(newDate)")
         
         // updating values
         flashcard.setValue(newNumberReviewed, forKey: "times_reviewed")
@@ -88,12 +89,18 @@ class ViewController: UIViewController {
         flashcard.setValue(newInterval, forKey: "current_interval")
         flashcard.setValue(newDate, forKey: "next_date")
         
+        managedContext.save(nil)
+        
         println("!!!!!!!!!!!!! Updated !!!!!!!!!!!!!")
         println(flashcard)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         tgr = UITapGestureRecognizer(target: self, action: "showAnswer")
         self.view.addGestureRecognizer(tgr)
@@ -106,7 +113,13 @@ class ViewController: UIViewController {
         if managedContext == nil {
             managedContext = appDelegate.managedObjectContext!
         }
-        let fetchRequest = NSFetchRequest(entityName: "Flashcards")
+        var fetchRequest = NSFetchRequest(entityName: "Flashcards")
+        
+        let currentDate: NSDate = NSDate()
+        fetchRequest.predicate = NSPredicate(format: "next_date < %@", argumentArray: [currentDate])
+        let sortDescriptor = NSSortDescriptor(key: "next_date", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
         var error: NSError?
         
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
@@ -116,6 +129,7 @@ class ViewController: UIViewController {
             self.updateQuestion()
         } else {
             println("Could not fetch \(error),  \(error!.userInfo)")
+            self.view.removeGestureRecognizer(tgr)
         }
     }
     
@@ -129,9 +143,12 @@ class ViewController: UIViewController {
             let flashcard: NSManagedObject = flashcards[0] as NSManagedObject
         
             titleTextView.text = flashcard.valueForKey("question") as String
+            titleTextView.textAlignment = NSTextAlignment.Left
             answerTextView.text = flashcard.valueForKey("answer") as String
+            answerPlaceholderLabel.text = "Tap anywhere to see the answer"
         } else {
             titleTextView.text = "No more flashcards for now"
+            titleTextView.textAlignment = NSTextAlignment.Center
             answerPlaceholderLabel.text = "Come back later for more"
             answerPlaceholderLabel.textAlignment = NSTextAlignment.Center
             self.view.removeGestureRecognizer(tgr)
