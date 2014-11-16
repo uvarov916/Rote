@@ -178,10 +178,11 @@
 				TargetAttributes = {
 					667C085D1A1753CB00BC6BCD = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = W96SY39A42;
+						DevelopmentTeam = T36V9EZTBX;
 					};
 					667C08751A1753CB00BC6BCD = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = T36V9EZTBX;
 						TestTargetID = 667C085D1A1753CB00BC6BCD;
 					};
 				};
