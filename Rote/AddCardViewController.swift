@@ -9,39 +9,71 @@
 import UIKit
 import CoreData
 
-class AddCardViewController: UIViewController {
+class AddCardViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet var txtQuestion: UITextField!
-    @IBOutlet var txtAnswer: UITextField!
+    // MARK: VARIABLES
     
-    @IBAction func addNewCard() {
+    @IBOutlet var questionTextView: UITextView!
+    @IBOutlet var answerTextView: UITextView!
+    @IBOutlet var actionBarButton: UIBarButtonItem!
+    
+    // MARK: INITIALIZATION:
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        questionTextView.becomeFirstResponder()
+    }
+    
+    // MARK: TEXTVIEW DELEGATE
+    
+    func textViewDidChange(textView: UITextView) {
+        if countElements(questionTextView.text) > 0 && countElements(answerTextView.text) > 0 {
+            actionBarButton.enabled = true
+        } else {
+            actionBarButton.enabled = false
+        }
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.text == "Enter the question here" || textView.text == "Enter the correct answer here" {
+            textView.text = ""
+            if textView == questionTextView {
+                textView.textColor = UIColor.whiteColor()
+            } else {
+                textView.textColor = UIColor.blackColor()
+            }
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.textColor = UIColor.lightGrayColor()
+            if textView == questionTextView {
+                textView.text = "Enter the question here"
+            } else {
+                textView.text = "Enter the correct answer here"
+            }
+        }
+    }
+    
+    // MARK: ACTIONS
+
+    @IBAction func saveAction(sender: AnyObject) {
         var appDel:AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         var context:NSManagedObjectContext = appDel.managedObjectContext!
         
         var newFlashcard = NSEntityDescription.insertNewObjectForEntityForName("Flashcards", inManagedObjectContext: context) as NSManagedObject
         
-        newFlashcard.setValue(txtQuestion.text, forKey: "question")
-        newFlashcard.setValue(txtAnswer.text, forKey: "answer")
+        newFlashcard.setValue(questionTextView.text, forKey: "question")
+        newFlashcard.setValue(answerTextView.text, forKey: "answer")
         
         context.save(nil)
         
         println(newFlashcard)
         println("Object Saved.")
         
-        txtQuestion.text = ""
-        txtAnswer.text = ""
+        questionTextView.text = ""
+        answerTextView.text = ""
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }

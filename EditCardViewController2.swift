@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 
-class EditCardViewController: UIViewController {
+class EditCardViewController2: UIViewController {
     
     var flashCard: NSManagedObject!
     var managedContext: NSManagedObjectContext!
     
     @IBOutlet var questionTextView: UITextView!
     @IBOutlet var answerTextView: UITextView!
+    @IBOutlet var actionBarButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,14 @@ class EditCardViewController: UIViewController {
         answerTextView.text = flashCard.valueForKey("answer") as String
     }
     
-    @IBAction func saveCard(sender: AnyObject) {
+    @IBAction func editCard(sender: AnyObject) {
+        questionTextView.becomeFirstResponder()
+        
+        actionBarButtonItem.title = "Save"
+        actionBarButtonItem.action = "saveCard:"
+    }
+    
+    func saveCard(sender: AnyObject) {
         flashCard.setValue(questionTextView.text, forKey: "question")
         flashCard.setValue(answerTextView.text, forKey: "answer")
         

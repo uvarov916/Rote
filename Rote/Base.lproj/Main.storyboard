@@ -43,10 +43,10 @@
                                 <rect key="frame" x="1" y="538" width="374" height="65"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTf-Kg-WIr">
-                                        <rect key="frame" x="244" y="0.0" width="130" height="65"/>
+                                        <rect key="frame" x="234" y="0.0" width="140" height="65"/>
                                         <color key="backgroundColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                        <state key="normal" title="RIGHT">
+                                        <state key="normal" title="RIGHT!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -55,9 +55,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAR-ud-wEt">
-                                        <rect key="frame" x="129" y="0.0" width="115" height="65"/>
+                                        <rect key="frame" x="139" y="0.0" width="95" height="65"/>
                                         <color key="backgroundColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                         <state key="normal" title="NOT SURE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,10 +67,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8j-fe-rn7">
-                                        <rect key="frame" x="-1" y="0.0" width="130" height="65"/>
+                                        <rect key="frame" x="-1" y="0.0" width="140" height="65"/>
                                         <color key="backgroundColor" red="0.87450987100601196" green="0.27058824896812439" blue="0.24705883860588074" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
-                                        <state key="normal" title="WRONG">
+                                        <state key="normal" title="WRONG :(">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -230,7 +230,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
         <!--Edit-->
         <scene sceneID="p2q-1B-kiA">
             <objects>
-                <viewController id="EUi-v7-OCf" customClass="EditCardViewController" customModule="Rote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EUi-v7-OCf" customClass="EditCardViewController2" customModule="Rote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qbr-sw-OqM"/>
                         <viewControllerLayoutGuide type="bottom" id="wyF-Sz-wXC"/>
@@ -250,7 +250,7 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                                         </constraints>
                                         <color key="textColor" red="0.99991267919540405" green="1" blue="0.99988144636154175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20828542113304138" green="0.28433912992477417" blue="0.37640839815139771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,9 +262,9 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jCA-od-twt">
-                                <rect key="frame" x="16" y="131" width="343" height="452"/>
+                                <rect key="frame" x="27" y="155" width="320" height="428"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="rUq-MI-ZOP"/>
+                                    <constraint firstAttribute="width" constant="320" id="rUq-MI-ZOP"/>
                                 </constraints>
                                 <string key="text">1. puts s * 5
 2. 5.times { puts s }
@@ -272,33 +272,34 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
 
 Notice, the second option will print each string on a new line, while 1 and 3 will print string s 5 times on one line.</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wyF-Sz-wXC" firstAttribute="top" secondItem="jCA-od-twt" secondAttribute="bottom" constant="20" id="QV6-xv-5Kk"/>
-                            <constraint firstItem="jCA-od-twt" firstAttribute="leading" secondItem="gWH-vH-soR" secondAttribute="leadingMargin" id="ZTL-TW-OBM"/>
-                            <constraint firstItem="jCA-od-twt" firstAttribute="top" secondItem="2n0-ED-3ol" secondAttribute="bottom" constant="8" id="d19-4k-nkf"/>
+                            <constraint firstItem="jCA-od-twt" firstAttribute="leading" secondItem="gWH-vH-soR" secondAttribute="leadingMargin" constant="11" id="ZTL-TW-OBM"/>
+                            <constraint firstItem="jCA-od-twt" firstAttribute="top" secondItem="2n0-ED-3ol" secondAttribute="bottom" constant="32" id="d19-4k-nkf"/>
                             <constraint firstItem="2n0-ED-3ol" firstAttribute="top" secondItem="Qbr-sw-OqM" secondAttribute="bottom" id="lwZ-P3-tXO"/>
                             <constraint firstItem="2n0-ED-3ol" firstAttribute="leading" secondItem="gWH-vH-soR" secondAttribute="leadingMargin" constant="-16" id="rZB-7Z-c5M"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit" id="cjk-E6-8Tr">
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="FjJ-yh-jJn">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="FjJ-yh-jJn">
                             <connections>
-                                <action selector="saveCard:" destination="EUi-v7-OCf" id="szX-t8-YZP"/>
+                                <action selector="editCard:" destination="EUi-v7-OCf" id="esc-UO-hhT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answerTextView" destination="jCA-od-twt" id="UZR-Ey-s9A"/>
-                        <outlet property="questionTextView" destination="JZx-rj-gP3" id="jtE-Wm-ev9"/>
+                        <outlet property="actionBarButtonItem" destination="FjJ-yh-jJn" id="KQG-Pb-fmN"/>
+                        <outlet property="answerTextView" destination="jCA-od-twt" id="PRV-m0-kC0"/>
+                        <outlet property="questionTextView" destination="JZx-rj-gP3" id="UzB-Cr-ppZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yf9-Jp-gKq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252.5" y="9.5"/>
+            <point key="canvasLocation" x="2252.5" y="-58.5"/>
         </scene>
         <!--Add Cards-->
         <scene sceneID="yHZ-DX-BIe">
@@ -312,38 +313,70 @@ Notice, the second option will print each string on a new line, while 1 and 3 wi
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Xo-z7-9nN">
-                                <rect key="frame" x="16" y="182" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqC-f7-dWp">
-                                <rect key="frame" x="164" y="245" width="30" height="30"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQr-64-3qE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Enter the question here" translatesAutoresizingMaskIntoConstraints="NO" id="6sl-Wi-Sbv">
+                                        <rect key="frame" x="28" y="31" width="320" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="320" id="BwE-hl-QAA"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="LaC-is-jsC" id="dP7-wp-PAh"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20828542110000001" green="0.28433912989999999" blue="0.37640839819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6sl-Wi-Sbv" firstAttribute="leading" secondItem="hQr-64-3qE" secondAttribute="leading" constant="28" id="0Rz-5v-nly"/>
+                                    <constraint firstAttribute="bottom" secondItem="6sl-Wi-Sbv" secondAttribute="bottom" constant="29" id="0Wf-zw-3sp"/>
+                                    <constraint firstItem="6sl-Wi-Sbv" firstAttribute="top" secondItem="hQr-64-3qE" secondAttribute="top" constant="31" id="74D-np-LyE"/>
+                                    <constraint firstAttribute="width" constant="375" id="Ur5-4a-amL"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter the correct answer here" translatesAutoresizingMaskIntoConstraints="NO" id="W4n-EQ-OHP">
+                                <rect key="frame" x="27" y="132" width="320" height="451"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="D9w-cr-2SL"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
                                 <connections>
-                                    <action selector="addNewCard" destination="LaC-is-jsC" eventType="touchUpInside" id="D0k-Ee-zyq"/>
+                                    <outlet property="delegate" destination="LaC-is-jsC" id="hkm-AB-z16"/>
                                 </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RAm-7o-nH3">
-                                <rect key="frame" x="16" y="121" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hQr-64-3qE" firstAttribute="leading" secondItem="EcU-FD-aUa" secondAttribute="leadingMargin" constant="-16" id="1W1-P1-lGE"/>
+                            <constraint firstItem="W4n-EQ-OHP" firstAttribute="top" secondItem="hQr-64-3qE" secondAttribute="bottom" constant="32" id="chj-bk-Rg9"/>
+                            <constraint firstItem="W4n-EQ-OHP" firstAttribute="leading" secondItem="EcU-FD-aUa" secondAttribute="leadingMargin" constant="11" id="jcC-5z-VsH"/>
+                            <constraint firstItem="hQr-64-3qE" firstAttribute="top" secondItem="4Nl-rK-dhg" secondAttribute="bottom" id="jma-3N-46Y"/>
+                            <constraint firstItem="Cbu-l3-oAP" firstAttribute="top" secondItem="W4n-EQ-OHP" secondAttribute="bottom" constant="20" id="zPm-Ob-Dig"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Cards" id="Sow-bE-lGv"/>
+                    <navigationItem key="navigationItem" title="Add Cards" id="Sow-bE-lGv">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="n9g-QO-ahf">
+                            <connections>
+                                <action selector="saveAction:" destination="LaC-is-jsC" id="QPc-sB-Yjv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="txtAnswer" destination="9Xo-z7-9nN" id="8U1-ck-hQg"/>
-                        <outlet property="txtQuestion" destination="RAm-7o-nH3" id="sJO-0N-VG1"/>
+                        <outlet property="actionBarButton" destination="n9g-QO-ahf" id="T5n-GD-BAv"/>
+                        <outlet property="answerTextView" destination="W4n-EQ-OHP" id="zqE-Ce-PPP"/>
+                        <outlet property="questionTextView" destination="6sl-Wi-Sbv" id="Fvv-xb-fw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clb-lg-aZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252.5" y="764.5"/>
+            <point key="canvasLocation" x="2252.5" y="813.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Zrn-SO-aKE">

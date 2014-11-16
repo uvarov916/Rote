@@ -95,7 +95,7 @@ class CardsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editCardSegue" {
-            let vc:EditCardViewController = segue.destinationViewController as EditCardViewController
+            let vc:EditCardViewController2 = segue.destinationViewController as EditCardViewController2
             let indexPath = tableView.indexPathForSelectedRow()
             vc.flashCard = flashcards[indexPath!.row]
             vc.managedContext = managedContext
